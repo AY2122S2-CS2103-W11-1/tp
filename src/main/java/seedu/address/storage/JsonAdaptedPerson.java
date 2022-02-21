@@ -44,7 +44,7 @@ class JsonAdaptedPerson {
         this.email = email;
         this.address = address;
         this.remark = remark;
-            if (tagged != null) {
+        if (tagged != null) {
             this.tagged.addAll(tagged);
         }
     }
@@ -58,7 +58,7 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         address = source.getAddress().value;
         remark = source.getRemark().value;
-            tagged.addAll(source.getTags().stream()
+        tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
     }
