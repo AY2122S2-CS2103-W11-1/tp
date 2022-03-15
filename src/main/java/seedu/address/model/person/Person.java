@@ -25,6 +25,7 @@ public class Person {
     private final List<Tag> internships;
     private final List<Tag> modules;
     private final List<Tag> ccas;
+    private final Remark remark;
 
     /**
      * Every field must be present and not null.
@@ -39,13 +40,14 @@ public class Person {
         this.internships = new ArrayList<>();
         this.modules = new ArrayList<>();
         this.ccas = new ArrayList<>();
+        this.remark = new Remark("");
     }
 
     /**
      * Second constructor for Person.
      */
     public Person(Name name, Phone phone, Email email, Address address, List<Tag> educations, List<Tag> internships,
-                  List<Tag> modules, List<Tag> ccas) {
+                  List<Tag> modules, List<Tag> ccas, Remark remark) {
         requireAllNonNull(name, phone, email, address, educations, internships, modules, ccas);
         this.name = name;
         this.phone = phone;
@@ -55,6 +57,7 @@ public class Person {
         this.internships = internships;
         this.modules = modules;
         this.ccas = ccas;
+        this.remark = remark;
     }
 
     public Name getName() {
@@ -88,6 +91,8 @@ public class Person {
     public List<Tag> getCcas() {
         return ccas;
     }
+
+    public Remark getRemark() { return remark; }
 
     /**
      * Returns true if both persons have the same name.

@@ -12,6 +12,7 @@ import seedu.address.model.person.Module;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -32,6 +33,7 @@ public class PersonBuilder {
     private List<Tag> internships;
     private List<Tag> modules;
     private List<Tag> ccas;
+    private Remark remark;
 
 
     /**
@@ -46,6 +48,7 @@ public class PersonBuilder {
         internships = new ArrayList<>();
         modules = new ArrayList<>();
         ccas = new ArrayList<>();
+        remark = new Remark("");
     }
 
     /**
@@ -60,6 +63,7 @@ public class PersonBuilder {
         internships = personToCopy.getInternships();
         modules = personToCopy.getModules();
         ccas = personToCopy.getCcas();
+        remark =  personToCopy.getRemark();
     }
 
     /**
@@ -123,6 +127,14 @@ public class PersonBuilder {
      */
     public PersonBuilder withCca(String cca) {
         ccas.add(new Cca(cca));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Remark} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withRemark(String remark) {
+        this.remark = new Remark(remark);
         return this;
     }
 

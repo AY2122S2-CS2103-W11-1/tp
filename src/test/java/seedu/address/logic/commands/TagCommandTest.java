@@ -68,7 +68,7 @@ public class TagCommandTest {
 
         Person editedPersonEdu = new Person(
                 personToTag1.getName(), personToTag1.getPhone(), personToTag1.getEmail(), personToTag1.getAddress(),
-                emptyList, internshipList, moduleList, ccaList);
+                emptyList, internshipList, moduleList, ccaList, personToTag1.getRemark());
 
         ModelManager expectedModelEduEmpty = new ModelManager(model.getAddressBook(), new UserPrefs());
 
@@ -90,7 +90,7 @@ public class TagCommandTest {
 
         Person editedPersonInternship = new Person(
                 personToTag1.getName(), personToTag1.getPhone(), personToTag1.getEmail(), personToTag1.getAddress(),
-                eduList, emptyList, moduleList, ccaList);
+                eduList, emptyList, moduleList, ccaList, personToTag1.getRemark());
 
         ModelManager expectedModelInternshipEmpty = new ModelManager(model.getAddressBook(), new UserPrefs());
 
@@ -112,7 +112,7 @@ public class TagCommandTest {
 
         Person editedPersonModule = new Person(
                 personToTag1.getName(), personToTag1.getPhone(), personToTag1.getEmail(), personToTag1.getAddress(),
-                eduList, internshipList, emptyList, ccaList);
+                eduList, internshipList, emptyList, ccaList, personToTag1.getRemark());
 
         ModelManager expectedModelModuleEmpty = new ModelManager(model.getAddressBook(), new UserPrefs());
 
@@ -133,7 +133,7 @@ public class TagCommandTest {
 
         Person editedPersonCca = new Person(
                 personToTag1.getName(), personToTag1.getPhone(), personToTag1.getEmail(), personToTag1.getAddress(),
-                eduList, internshipList, moduleList, emptyList);
+                eduList, internshipList, moduleList, emptyList, personToTag1.getRemark());
 
         ModelManager expectedModelCcaEmpty = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModelCcaEmpty.setPerson(personToTag1, editedPersonCca);

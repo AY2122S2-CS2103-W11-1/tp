@@ -90,7 +90,7 @@ public class TagCommand extends Command {
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(), personToEdit.getAddress(),
                 new ArrayList<>(currEducations), new ArrayList<>(currInternships),
-                new ArrayList<>(currModules), new ArrayList<>(currCcas));
+                new ArrayList<>(currModules), new ArrayList<>(currCcas), personToEdit.getRemark());
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);

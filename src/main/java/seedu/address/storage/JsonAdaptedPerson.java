@@ -18,6 +18,7 @@ import seedu.address.model.person.Module;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -35,6 +36,7 @@ class JsonAdaptedPerson {
     private final List<JsonAdaptedTag> educations = new ArrayList<>();
     private final List<JsonAdaptedTag> internships = new ArrayList<>();
     private final List<JsonAdaptedTag> modules = new ArrayList<>();
+    private final String remark;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -45,7 +47,7 @@ class JsonAdaptedPerson {
             @JsonProperty("educations") List<JsonAdaptedTag> educations,
             @JsonProperty("internships") List<JsonAdaptedTag> internships,
             @JsonProperty("modules") List<JsonAdaptedTag> modules,
-            @JsonProperty("ccas") List<JsonAdaptedTag> ccas) {
+            @JsonProperty("ccas") List<JsonAdaptedTag> ccas, @JsonProperty("remark") String remark) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -62,6 +64,7 @@ class JsonAdaptedPerson {
         if (ccas != null) {
             this.ccas.addAll(ccas);
         }
+        this.remark = remark;
     }
 
     /**
@@ -84,6 +87,7 @@ class JsonAdaptedPerson {
         ccas.addAll(new HashSet<>(source.getCcas()).stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        remark = source.getRemark().value;
     }
 
     /**
@@ -157,7 +161,12 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
+        if (address == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
+        }
+        final Remark modelRemark = new Remark(remark);
+
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelEducations, modelInternships,
-                modelModules, modelCcas);
+                modelModules, modelCcas, modelRemark);
     }
 }

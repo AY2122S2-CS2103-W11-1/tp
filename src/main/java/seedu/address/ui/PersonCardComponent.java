@@ -48,6 +48,9 @@ public class PersonCardComponent extends UiPart<Region> {
     private FlowPane ccas;
     @FXML
     private Label l;
+    @FXML
+    private Label remark;
+
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
@@ -59,6 +62,7 @@ public class PersonCardComponent extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
+        remark.setText(person.getRemark().value);
         educations.setHgap(8);
         educations.setVgap(8);
         internships.setHgap(8);
